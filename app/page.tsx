@@ -30,18 +30,6 @@ export default function Home() {
             imageSrc="./images/me.png"
             className="w-full h-full mb-4"
           />
-          <div className="flex flex-col justify-center items-center gap-2">
-            <div className="text-white text-5xl font-bold tracking-wider">
-              BERKANT
-            </div>
-            <div className="text-white text-4xl font-semibold">AY</div>
-          </div>
-
-          <div className="flex justify-center items-center px-4 mt-8">
-            <div className="text-xl mx-auto font-medium text-gray-300 dark:text-neutral-400">
-              AY <br />
-            </div>
-          </div>
         </div>
       </main>
       <footer>
