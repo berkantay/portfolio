@@ -4,33 +4,36 @@ import SvgGrid from "@/components/ui/svg-grid";
 
 const whoamiParagraph1 = (
   <>
-    I’m a{" "}
+    Hey! I'm a{" "}
     <span className="font-bold text-lime-300">
-      27-years-old <span className=" text-zinc-400 font-normal"> and </span>{" "}
+      28-years-old <span className=" text-zinc-400 font-normal"> and </span>{" "}
       software engineer
     </span>{" "}
-    based in Berlin with a passion for crafting innovative products. With a
-    generalist mindset, I bring a broad range of experience spanning over{" "}
-    <span className="font-bold text-lime-300">6 years</span>, navigating from
-    bare metal to cloud-based solutions. My journey began with hardware design
-    which naturally evolved into a deep appreciation for{" "}
-    <span className="font-bold text-lime-300"> software craftsmanship</span>,
-    across various systems.
+    calling Berlin my home. I love building cool stuff and diving into new tech
+    challenges. Being a generalist at heart, I've spent the last{" "}
+    <span className="font-bold text-lime-300">8+ years</span> working on
+    everything from bare metal to cloud solutions. It all started with tinkering
+    with hardware, which got me hooked on{" "}
+    <span className="font-bold text-lime-300">
+      crafting elegant software solutions
+    </span>{" "}
+    across different platforms.
   </>
 );
 
 const whoamiParagraph2 = (
   <>
-    Throughout my career, I have worked across multiple domains, including{" "}
+    My journey has taken me through some exciting territories -{" "}
     <span className="font-bold text-lime-300">
-      consumer electronics, defense, factory automation, and adtech
+      from consumer electronics and defense to factory automation and adtech
     </span>
-    . Currently, I’m focused on building a product to address{" "}
+    . These days, I'm pouring my energy into{" "}
     <span className="font-bold text-lime-300">
-      digital adoption challenges for SaaS companies
+      building AI Agents for in-product demos
     </span>
-    , blending my diverse experience with a commitment to enhancing user
-    experiences and driving growth.
+    . It's pretty exciting stuff - I get to mix all my past experience with
+    cutting-edge tech to create something that really makes a difference in how
+    people interact with products.
   </>
 );
 
@@ -194,6 +197,17 @@ export default function About() {
                       "images/svg/pytorch.svg",
                     ]}
                   />
+                </CardItem>
+              </div>
+              <div className="mb-4">
+                <CardItem
+                  as="p"
+                  translateZ="60"
+                  className="text-zinc-400 text-sm max-w-sm mt-2 italic"
+                >
+                  Note: This is an old list - I used way more tools, keeping
+                  this card just because it is too fun to play with! 🎮. Didn't
+                  have time to update 🧑‍💻
                 </CardItem>
               </div>
             </CardBody>
