@@ -2,7 +2,7 @@
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
 import Image from "next/image";
 import { encode } from "qss";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
   AnimatePresence,
   motion,
@@ -56,11 +56,10 @@ export const LinkPreview = ({
     src = imageSrc;
   }
 
-  const [isOpen, setOpen] = React.useState(false);
+  const [isOpen, setOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
-  const [isMounted, setIsMounted] = React.useState(false);
-
-  React.useEffect(() => {
+  useEffect(() => {
     setIsMounted(true);
   }, []);
 
@@ -101,8 +100,8 @@ export const LinkPreview = ({
       >
         <HoverCardPrimitive.Trigger
           onMouseMove={handleMouseMove}
-          className={cn("text-blue-500 dark:text-white", className)}
-          style={{ color }} // Use the color prop
+          className={cn("hover:underline", className)}
+          style={{ color }}
           href={url}
         >
           {children}
@@ -136,7 +135,7 @@ export const LinkPreview = ({
               >
                 <Link
                   href={url}
-                  className="block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200 dark:hover:border-neutral-800"
+                  className="block p-1 bg-white border-2 border-transparent shadow rounded-xl hover:border-neutral-200"
                   style={{ fontSize: 0 }}
                 >
                   <Image

@@ -3,6 +3,20 @@ import Image from "next/image";
 import React from "react";
 import { Timeline } from "@/components/ui/timeline";
 import { LinkPreview } from "@/components/ui/link-preview";
+import Link from "next/link";
+
+const routes = [
+  { title: "Home", href: "/" },
+  { title: "About", href: "/about" },
+  { title: "Experience", href: "/experience" },
+  {
+    title: "LinkedIn",
+    href: "https://www.linkedin.com/in/berkantay",
+    external: true,
+  },
+  { title: "Twitter", href: "https://twitter.com/berkantay2", external: true },
+  { title: "GitHub", href: "https://github.com/berkantay", external: true },
+];
 
 export default function Experience() {
   const data = [
@@ -10,12 +24,12 @@ export default function Experience() {
       title: "2024 May - Present",
       content: (
         <div>
-          <ul className="list-disc text-white font-semibold dark:text-neutral-200 text-xs md:text-sm  mb-4">
+          <ul className="list-disc text-white font-semibold text-xs md:text-sm mb-4">
             <li>
               Joined to pyne as a founding engineer. Pyne is backed by{" "}
-              <b className="text-[#E9FFAE]">Lightspeed </b>
+              <b className="text-pink-500">Lightspeed </b>
               and
-              <b className="text-[#E9FFAE]"> Sequoia Capital partners</b>.
+              <b className="text-pink-500"> Sequoia Capital partners</b>.
               Currently building in-product AI agents to help PLG & Sales Led
               companies increase their user activations and conversions.
             </li>
@@ -48,7 +62,7 @@ export default function Experience() {
       title: "Aug 2023-May 2024",
       content: (
         <div>
-          <ul className="list-disc text-white font-semibold dark:text-neutral-200 text-xs md:text-sm  mb-8">
+          <ul className="list-disc text-white font-semibold text-xs md:text-sm mb-8">
             <li>
               Worked in AdTech domain, fully focused on writing scalable and
               error prone services on core bidding and integration projects.
@@ -89,7 +103,7 @@ export default function Experience() {
       title: "2023 Aug - 2021 Aug",
       content: (
         <div>
-          <ul className="list-disc text-white font-semibold dark:text-neutral-200 text-xs md:text-sm  mb-4">
+          <ul className="list-disc text-white font-semibold text-xs md:text-sm mb-4">
             <li>
               Designed and built successor of the legacy application broadly
               used in factory automation industry called <b>DiagMonitor</b>.
@@ -100,7 +114,7 @@ export default function Experience() {
               <LinkPreview
                 url="https://www.siemens.com/de/de/produkte/automatisierung/pc-based/simatic-ipc-orcla.html"
                 className="font-bold"
-                color="#00CCCC"
+                color="#EC4899"
               >
                 Simatic IPC ORCLA
               </LinkPreview>
@@ -111,7 +125,7 @@ export default function Experience() {
               <LinkPreview
                 url="https://sote.app"
                 className="font-bold"
-                color="#E9FFAE"
+                color="#EC4899"
               >
                 sote.app
               </LinkPreview>{" "}
@@ -143,7 +157,7 @@ export default function Experience() {
       title: "2021 Aug - 2019 Nov",
       content: (
         <div>
-          <ul className="list-disc text-white font-semibold dark:text-neutral-200 text-xs md:text-sm  mb-4">
+          <ul className="list-disc text-white font-semibold text-xs md:text-sm mb-4">
             <li>
               I was in AI Resaerch & Development team. Worked with my partner on
               human detection and tracking project. Planned and executed each
@@ -162,7 +176,7 @@ export default function Experience() {
       title: "2019 Nov - 2018 Aug",
       content: (
         <div>
-          <ul className="list-disc text-white font-semibold dark:text-neutral-200 text-xs md:text-sm  mb-4">
+          <ul className="list-disc text-white font-semibold text-xs md:text-sm mb-4">
             <li>
               It was my first company. Joined as an intern, promoted to
               part-time, and received a full-time offer upon graduation.
@@ -178,8 +192,41 @@ export default function Experience() {
       ),
     },
   ];
+
   return (
-    <div className="w-full">
+    <div className="w-full font-[family-name:var(--font-geist-mono)]">
+      <div className="w-full px-6 pt-4 sm:px-20 sm:pt-4 flex justify-between items-center">
+        <nav className="mb-8">
+          <ul className="flex flex-wrap gap-6 text-lg">
+            {routes.map((route) => (
+              <li key={route.title}>
+                {route.external ? (
+                  <a
+                    href={route.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-pink-500 transition-colors duration-200 font-bold"
+                  >
+                    {route.title}
+                  </a>
+                ) : (
+                  <Link
+                    href={route.href}
+                    className={`transition-colors duration-200 font-bold ${
+                      route.href === "/experience"
+                        ? "text-pink-500"
+                        : "text-white hover:text-pink-500"
+                    }`}
+                  >
+                    {route.title}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+
       <Timeline data={data} />
     </div>
   );

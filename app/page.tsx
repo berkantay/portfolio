@@ -1,40 +1,78 @@
 "use client";
 
-import { EvervaultCard } from "@/components/ui/evervault-card";
 import React from "react";
-import {
-  IconBrandGithub,
-  IconBrandSuperhuman,
-  IconBrandX,
-  IconHome,
-  IconRoad,
-} from "@tabler/icons-react";
 import Image from "next/image";
-import { Dock } from "./dock";
-import { DomainList } from "./components/DomainList";
+import Link from "next/link";
+import { DomainList } from "@/app/components/DomainList";
+
+const routes = [
+  { title: "Home", href: "/" },
+  { title: "About", href: "/about" },
+  { title: "Experience", href: "/experience" },
+  {
+    title: "LinkedIn",
+    href: "https://www.linkedin.com/in/berkantay",
+    external: true,
+  },
+  { title: "Twitter", href: "https://twitter.com/berkantay2", external: true },
+  { title: "GitHub", href: "https://github.com/berkantay", external: true },
+];
 
 export default function Home() {
   return (
-    <div className="bg-black grid grid-rows-[20px_1fr_240px] h-screen p-8 pb-20 gap-8 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <div className="absolute top-8 left-8 sm:top-20 sm:left-20 flex items-center gap-4">
-        <div className="text-white text-2xl font-bold tracking-wider">
-          BERKANT AY
-        </div>
-        <div className="text-neutral-400 text-lg">
-          <DomainList />
+    <div className="grid grid-rows-[auto_1fr] h-screen p-4 sm:p-10 font-[family-name:var(--font-geist-mono)]">
+      <div className="flex flex-row justify-between items-start">
+        <div className="flex flex-row gap-8">
+          <div className="flex flex-col items-center gap-24">
+            <div className="relative h-20 w-20 sm:h-24 sm:w-24 rounded-full overflow-hidden">
+              <Image
+                src="/images/me.png"
+                alt="Profile"
+                fill
+                style={{ objectFit: "cover" }}
+                priority
+              />
+            </div>
+
+            <nav className="pb-10">
+              <ul className="flex flex-col gap-4 text-xl">
+                {routes.map((route) => (
+                  <li key={route.title}>
+                    {route.external ? (
+                      <a
+                        href={route.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white hover:text-pink-500 hover:bg-white px-3 py-1 rounded transition-all duration-200 font-bold"
+                      >
+                        {route.title}
+                      </a>
+                    ) : (
+                      <Link
+                        href={route.href}
+                        className="text-white hover:text-pink-500 hover:bg-white px-3 py-1 rounded transition-all duration-200 font-bold"
+                      >
+                        {route.title}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          <div className="mt-4 sm:mt-0">
+            <div className="text-white text-2xl font-bold tracking-wider font-mono">
+              berkant ay
+            </div>
+            <div className="text-neutral-400 text-lg">
+              <DomainList />
+            </div>
+          </div>
         </div>
       </div>
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start overflow-hidden">
-        <div className="border border-black/[0.2] dark:border-white/[0.2] flex flex-col items-center max-w-lg mx-auto p-4 relative h-full">
-          <EvervaultCard
-            imageSrc="./images/me.png"
-            className="w-full h-full mb-4"
-          />
-        </div>
-      </main>
-      <footer>
-        <Dock />
-      </footer>
+
+      <main className="flex-1"></main>
     </div>
   );
 }
